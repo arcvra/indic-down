@@ -10,5 +10,8 @@
   "imports": {
     "#database/*": "./database/*",
     "#server/*": "./server/.js"
+  },
+  "scripts": {
+    "start": "node ./server/server.js"
   }
 }
