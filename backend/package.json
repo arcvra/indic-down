@@ -4,5 +4,10 @@
     "express": "^5.1.0",
     "mysql2": "^3.14.1",
     "node": "^22.16.0"
+  },
+  "type": "module",
+  "imports": {
+    "#database/*": "./database/*",
+    "#server/*": "./server/.js"
   }
 }
