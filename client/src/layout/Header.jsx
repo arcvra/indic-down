@@ -7,13 +7,13 @@ export const Header = () => {
             <nav>
                 <ul>
                     <li>
-                        <a href="https://indic-blueprints.vercel.app">Plantillas de texto</a>
+                        <a href="https://indic-blueprints.vercel.app" target="blank">Plantillas de texto</a>
                     </li>
                     <li>
-                        <a href="https://indic-blueprints.vercel.app/comentaris">Comentarios tipo</a>
+                        <a href="https://indic-blueprints.vercel.app/comentaris" target="blank">Comentarios tipo</a>
                     </li>
                     <li>
-                        <a href="https://github.com/arcvra">
+                        <a href="https://github.com/arcvra" target="blank">
                             <FaGithub />
                         </a>
                     </li>
