@@ -3,7 +3,7 @@ import { FaGithub } from "react-icons/fa";
 export const Header = () => {
     return (
         <header>
-            <h1><span>is </span>Indic Down <span>?</span></h1>
+            <h1>Indic Down</h1>
             <nav>
                 <ul>
                     <li>
