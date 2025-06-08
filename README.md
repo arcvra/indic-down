@@ -1,6 +1,6 @@
 # Indic Down
 
-Proyecto dedicado al seguimiento del estado de la herramienta *Indic* de [*pdc.xaliga.cat*](https://pedc.xaliga.cat) mediante la notificación por parte de los usuarios de la web.
+Proyecto dedicado al seguimiento del estado de la herramienta *Indic* de [*pdc.xaliga.cat*](https://pedc.xaliga.cat) mediante la notificación por parte de los usuarios. Este proyecto permite registrar las caídas del sistema para llevar un histórico visual y cuantificable.
 
 ## Tecnologías
 
@@ -23,5 +23,7 @@ Proyecto dedicado al seguimiento del estado de la herramienta *Indic* de [*pdc.x
 
 **Client**:
 
+- Creación de layout general [X]
 - Implementar Dashboard para visualizar registros [ ]
 - Implementar herramientas de notificación de incidencias [ ]
+- Estilado y diseño [ ]
