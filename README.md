@@ -6,7 +6,7 @@ Proyecto dedicado al seguimiento del estado de la herramienta *Indic* de [*pdc.x
 
 | Área                  | Stack                     |
 | -----                 | -----------               |
-| Backend               | Express, mysql2           |
+| Backend               | Express, pg               |
 | Frontend              | Next.js, Tailwind         |
 | Control de versiones  | Git + Github              |
 | Herramientas          | dotenv, CORS, concurrently|
@@ -16,7 +16,7 @@ Proyecto dedicado al seguimiento del estado de la herramienta *Indic* de [*pdc.x
 **Backend**:
 
 - Configuración inicial de servidor [X]
-- Conexión con Railway para DB [ ]
+- Conexión con Railway para DB [X]
 - Establecer rutas CRUD [ ]
 
 **Client**:
