@@ -14,7 +14,7 @@ const sql = `
     CREATE TABLE IF NOT EXISTS severities (
         id SERIAL PRIMARY KEY,
         name TEXT NOT NULL UNIQUE,
-        level TEXT NOT NULL UNIQUE
+        level INTEGER NOT NULL UNIQUE
     );
 
     CREATE TABLE IF NOT EXISTS types (
