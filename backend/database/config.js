@@ -11,12 +11,14 @@ export const pool = new Pool({
 const sql = `
     CREATE TABLE IF NOT EXISTS severities (
         id SERIAL PRIMARY KEY,
-        name TEXT NOT NULL
+        name TEXT NOT NULL UNIQUE,
+        level TEXT NOT NULL UNIQUE
     );
 
     CREATE TABLE IF NOT EXISTS types (
         id SERIAL PRIMARY KEY,
-        severity_id INTEGER NOT NULL REFERENCES severities(id)
+        severity_id INTEGER NOT NULL REFERENCES severities(id),
+        name TEXT NOT NULL UNIQUE
     );
 
     CREATE TABLE IF NOT EXISTS logs (
