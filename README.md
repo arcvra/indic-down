@@ -10,6 +10,8 @@ Proyecto dedicado al seguimiento del estado de la herramienta *Indic* de [*pdc.x
 | Frontend              | Next.js, Tailwind         |
 | Control de versiones  | Git + Github              |
 | Herramientas          | dotenv, CORS, concurrently|
+| Hosting (backend)     | Railway                   |
+| Hosting (client)      | Vercel                    |
 
 ## Roadmap
 
