@@ -26,7 +26,6 @@ const sql = `
     CREATE TABLE IF NOT EXISTS logs (
         id SERIAL PRIMARY KEY,
         type_id INTEGER NOT NULL REFERENCES types(id),
-        severity_id INTEGER NOT NULL REFERENCES severities(id),
         created_at TIMESTAMP DEFAULT NOW()
     );
 `;
