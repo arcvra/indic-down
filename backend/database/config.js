@@ -1,5 +1,7 @@
 import { Pool } from "pg";
 import dotenv from "dotenv";
+import { createSeverities } from "#database/seed/severities.js"
+import { createTypes } from "#database/seed/types.js";
 
 dotenv.config();
 
@@ -33,6 +35,8 @@ export const initDatabase = async () => {
     try {
         await pool.query(sql);
         console.log("Tablas creadas con éxito");
+        await createTypes();
+        await createSeverities();
     } catch (err) {
         console.error("Error al ejecutar SQL: ", err);
     } finally {
