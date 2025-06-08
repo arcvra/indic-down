@@ -3,7 +3,7 @@ import { pool } from "#database/config.js";
 export const listTypes = () => pool.query(`
     SELECT 
         types.id,
-        types.severity_id AS severity,
+        types.severity_id,
         types.name AS type,
         severities.name AS severity,
         severities.level AS level
