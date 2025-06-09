@@ -9,7 +9,7 @@
   "type": "module",
   "imports": {
     "#database/*": "./database/*",
-    "#server/*": "./server/.js"
+    "#server/*": "./server/*"
   },
   "scripts": {
     "start": "node ./server/server.js"

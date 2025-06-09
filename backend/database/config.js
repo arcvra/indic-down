@@ -14,7 +14,7 @@ const sql = `
     CREATE TABLE IF NOT EXISTS severities (
         id SERIAL PRIMARY KEY,
         name TEXT NOT NULL UNIQUE,
-        level TEXT NOT NULL UNIQUE
+        level INTEGER NOT NULL UNIQUE
     );
 
     CREATE TABLE IF NOT EXISTS types (
@@ -26,7 +26,6 @@ const sql = `
     CREATE TABLE IF NOT EXISTS logs (
         id SERIAL PRIMARY KEY,
         type_id INTEGER NOT NULL REFERENCES types(id),
-        severity_id INTEGER NOT NULL REFERENCES severities(id),
         created_at TIMESTAMP DEFAULT NOW()
     );
 `;
