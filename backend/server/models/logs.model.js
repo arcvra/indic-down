@@ -43,3 +43,25 @@ export const insertLog = (type_id, created_at) => pool.query(`
     (type_id, created_at)
     VALUES ($1, $2)
     `, [type_id, created_at]);
+
+
+/**
+ * Filtra los registros de logs según tipo (nombre) 
+ * 
+ * @async
+ * @function filterLogs
+ * @param {string} type - Nombre del tipo de error registrado
+ * @returns {Promise<import('pg').QueryResult<LogRow>>} 
+ */
+export const filterLogs = (type) => pool.query(`
+    SELECT
+        logs.id,
+        logs.created_at,
+        types.name AS type,
+        severities.name AS severity,
+        severities.level AS level
+    FROM logs 
+    JOIN types ON logs.type_id = types.id
+    JOIN severities ON types.severity_id = severities.id
+    WHERE types.name = $1
+    `, [type]);
