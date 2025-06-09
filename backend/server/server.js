@@ -12,13 +12,16 @@ const corsConfig = {
     origin: `${process.env.HOST}:${PORT}`
 }
 
+// App middlewares
 const app = express();
 app.use(express.json());
 app.use(cors(corsConfig));
 
+// Routes
 getLogs(app);
 getTypes(app);
 
+// Listener
 app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}.`)
 })
