@@ -4,7 +4,7 @@ import { pool } from "#database/config.js";
 * 
 * @async
 * @function listTypes
-* @returns {Promise<import('pg').QueryResult<LogRow>>}
+* @returns {Promise<import('pg').QueryResult<TypeRow>>}
 */
 export const listTypes = () => pool.query(`
     SELECT 
@@ -19,7 +19,7 @@ export const listTypes = () => pool.query(`
      `);
 
 /**
-* @typedef {Object} LogRow
+* @typedef {Object} TypeRow
 * @property {number} id
 * @property {string} type        Nombre del tipo de error
 * @property {number} severity_id ID del nivel de severidad       
