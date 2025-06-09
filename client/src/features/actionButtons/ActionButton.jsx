@@ -1,8 +1,10 @@
+"use client"
 import { Button } from "@/components/Button"
-import { fetchTypes } from "@/utils/types"
+import { useState } from "react";
 
-export const ActionButton = async () => {
-    const types = await fetchTypes();
+export const ActionButton = ({ data }) => {
+    const [types, setTypes] = useState(data);
+    
     return (
         <>
             {types?.map((item) => (
