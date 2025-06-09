@@ -8,8 +8,7 @@ export const fetchTypes = async () => {
         }
 
         const data = await res.json();
-        console.log(data);
-        return data;
+        return data.content;
     } catch (err) {
         console.error("Error al hacer fetch: ", err);
         return null;
