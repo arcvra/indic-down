@@ -1,7 +1,9 @@
+import { ActionButton } from "@/features/actionButtons/ActionButton";
+
 export default function Home() {
   return (
-    <>
-    placeholder
-    </>
+    <main>
+      <ActionButton />
+    </main>
   );
 }
