@@ -3,7 +3,7 @@ import { listLogs } from "#server/models/logs.model.js";
 
 const router = express.Router();
 
-router.get("/logs", async (req, res) => {
+router.get("/", async (req, res) => {
     try {
         const data = await listLogs();
         res.status(200).json({ status: true, content: data.rows });
