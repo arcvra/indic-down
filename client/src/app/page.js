@@ -1,9 +1,12 @@
 import { ActionButton } from "@/features/actionButtons/ActionButton";
+import { fetchTypes } from "@/utils/types";
 
-export default function Home() {
+export default async function Home() {
+  const data = await fetchTypes();
+
   return (
     <main>
-      <ActionButton />
+      <ActionButton data={data} />
     </main>
   );
 }
