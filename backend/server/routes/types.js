@@ -1,7 +1,9 @@
+import express from "express";
 import { listTypes } from "#server/models/types.model.js";
 
+const router = express.Router();
 
-export const getTypes = (app) => app.get("/types", async (req, res) => {
+router.get("/types", async (req, res) => {
     try {
         const data = await listTypes();
         res.status(200).json({ status: true, content: data.rows });
@@ -13,4 +15,6 @@ export const getTypes = (app) => app.get("/types", async (req, res) => {
             error: err
         })
     }
-})
+});
+
+export default router;
