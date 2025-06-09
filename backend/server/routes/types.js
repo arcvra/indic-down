@@ -3,7 +3,7 @@ import { listTypes } from "#server/models/types.model.js";
 
 const router = express.Router();
 
-router.get("/types", async (req, res) => {
+router.get("/", async (req, res) => {
     try {
         const data = await listTypes();
         res.status(200).json({ status: true, content: data.rows });
