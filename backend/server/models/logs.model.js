@@ -28,6 +28,16 @@ export const listLogs = () => pool.query(`
 * @property {string} level       Nivel de severidad (“Bajo, “Moderado", etc.)
 */
 
+
+/**
+ * Inserta un nuevo log en la base de datos con su tipo de error y la fecha/hora de creación
+ * 
+ * @async
+ * @function insertLog
+ * @param {number} type_id - ID del tipo de error (relacionado con la tabla `types`)
+ * @param {string} created_at - Fecha y hora del registro
+ * @returns {Promise<import('pg').QueryResult>} - Resultado de la operación de inserción
+ */
 export const insertLog = (type_id, created_at) => pool.query(`
     INSERT INTO logs
     (type_id, created_at)
