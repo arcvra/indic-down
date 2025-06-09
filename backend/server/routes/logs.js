@@ -1,6 +1,9 @@
+import express from "express";
 import { listLogs } from "#server/models/logs.model.js";
 
-export const getLogs = (app) => app.get("/logs", async (req, res) => {
+const router = express.Router();
+
+router.get("/logs", async (req, res) => {
     try {
         const data = await listLogs();
         res.status(200).json({ status: true, content: data.rows });
@@ -12,4 +15,6 @@ export const getLogs = (app) => app.get("/logs", async (req, res) => {
             error: err
         })
     }
-})
+});
+
+export default router;
