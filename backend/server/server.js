@@ -1,8 +1,8 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-import { getLogs } from "#server/routes/getLogs.js";
-import { getTypes } from "#server/routes/getTypes.js";
+import { getLogs } from "#server/routes/logs.js";
+import { getTypes } from "#server/routes/types.js";
 
 dotenv.config();
 
