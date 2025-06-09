@@ -27,3 +27,9 @@ export const listLogs = () => pool.query(`
 * @property {string} severity    Nombre de la severidad
 * @property {string} level       Nivel de severidad (“Bajo, “Moderado", etc.)
 */
+
+export const insertLog = (type_id, created_at) => pool.query(`
+    INSERT INTO logs
+    (type_id, created_at)
+    VALUES ($1, $2)
+    `, [type_id, created_at]);
