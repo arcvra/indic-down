@@ -1,8 +1,7 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-import { getLogs } from "#server/routes/logs.js";
-import { getTypes } from "#server/routes/types.js";
+import setupRoutes from "#server/routes/index.js";
 
 dotenv.config();
 
@@ -18,9 +17,7 @@ app.use(express.json());
 app.use(cors(corsConfig));
 
 // Routes
-getLogs(app);
-getTypes(app);
-
+setupRoutes(app);
 // Listener
 app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}.`)
