@@ -28,3 +28,21 @@ body {
   grid-template-rows: auto 1fr auto;
   min-height: 100lvh;
 }
+
+body::before {
+  content: "";
+  inset: 0;
+  position: absolute;
+  background-color: #0C0C0C;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%2381798d' fill-opacity='0.17' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+  z-index: -1;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.015), rgba(0, 0, 0, 0.1));
+  pointer-events: none;
+  z-index: 0;
+}
