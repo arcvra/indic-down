@@ -1,5 +1,5 @@
 import { ActionButton } from "@/features/actionButtons/ActionButton";
-import { fetchTypes } from "@/utils/types";
+import { fetchTypes } from "@/services/types";
 
 export default async function Home() {
   const data = await fetchTypes();
