@@ -19,16 +19,16 @@ router.get("/", async (req, res) => {
 
 router.post("/", async (req, res) => {
     try {
-        const { typeId, createdAt } = req.body;
+        const { typeId } = req.body;
 
-        if (typeof typeId !== "number" || typeof createdAt !== "string") {
+        if (typeof typeId !== "number") {
             return res.status(400).json({
                 status: false,
-                message: "Parámetros inválidos. Se esperaba {typeId: number, createdAt: string}."
+                message: "Parámetros inválidos. Se esperaba {typeId: number}."
             });
         }
 
-        const result = await insertLog(typeId, createdAt);
+        const result = await insertLog(typeId);
         return res.status(201).json({
             status: true,
             content: result.rows[0]
