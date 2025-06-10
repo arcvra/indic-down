@@ -2,19 +2,19 @@ import { FaGithub } from "react-icons/fa";
 
 export const Header = () => {
     return (
-        <header>
-            <h1>Indic Down</h1>
-            <nav>
-                <ul>
-                    <li>
+        <header className="grid grid-cols-[1fr_auto] py-4 px-20 items-center border-b-1 border-b-zinc-800">
+            <h1 className="text-xl text-red-400">Indic Down</h1>
+            <nav className="flex">
+                <ul className="flex text-zinc-400 gap-10 items-center">
+                    <li className="hidden sm:block">
                         <a href="https://indic-blueprints.vercel.app" target="blank">Plantillas de texto</a>
                     </li>
-                    <li>
+                    <li className="hidden sm:block">
                         <a href="https://indic-blueprints.vercel.app/comentaris" target="blank">Comentarios tipo</a>
                     </li>
-                    <li>
+                    <li className="text-xl">
                         <a href="https://github.com/arcvra" target="blank">
-                            <FaGithub />
+                            <FaGithub className="fill-zinc-300" />
                         </a>
                     </li>
                 </ul>
