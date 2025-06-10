@@ -1,13 +1,10 @@
-import { ActionButton } from "@/features/actionButtons/ActionButton";
+import { ButtonsSection } from "@/features/actionButtons/ButtonsSection";
 import { LogsTable } from "@/features/logTable/LogsTable";
-import { fetchTypes } from "@/services/types";
 
-export default async function Home() {
-  const data = await fetchTypes();
-
+export default function Home() {
   return (
     <main>
-      <ActionButton data={data} />
+      <ButtonsSection />
       <LogsTable />
     </main>
   );
