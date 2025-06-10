@@ -1,12 +1,17 @@
 "use client"
 import { Button } from "@/components/Button"
+import { postLog } from "@/services/postLog";
 import { useState } from "react";
 
 export const ActionButton = ({ data }) => {
     const [types, setTypes] = useState(data);
 
-    const handleClick = (itemId) => {
-        alert(`Clicked ${itemId}`);
+    const handleClick = async (itemId) => {
+        try {
+            const result = await postLog(itemId);
+        } catch (err) {
+            console.error("Error: ", err.message);
+        }
     }
 
     return (
