@@ -5,8 +5,8 @@ import { useState } from "react";
 export const ActionButton = ({ data }) => {
     const [types, setTypes] = useState(data);
 
-    const handleClick = (severity) => {
-        alert(`Clicked ${severity}`);
+    const handleClick = (itemId) => {
+        alert(`Clicked ${itemId}`);
     }
 
     return (
@@ -15,7 +15,7 @@ export const ActionButton = ({ data }) => {
                 <Button
                     key={item.id}
                     ariaLabel="potato"
-                    onClick={() => handleClick(item.severity)}
+                    onClick={() => handleClick(item.id)}
                     className="bg-indigo-950 transition-transform hover:scale-95 ease-in-out cursor-pointer"
                     name={item.type}
                     id={item.id}
