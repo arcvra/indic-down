@@ -21,7 +21,7 @@ export const ActionButton = ({ data }) => {
                     key={item.id}
                     ariaLabel="potato"
                     onClick={() => handleClick(item.id)}
-                    className="bg-indigo-950 transition-transform hover:scale-95 ease-in-out cursor-pointer"
+                    className="bg-gradient-to-tr from-zinc-800 to-transparent border-[1px] border-zinc-700 rounded-md text-sm transition-transform hover:scale-95 ease-in-out cursor-pointer"
                     name={item.type}
                     id={item.id}
                     title={item.type}
