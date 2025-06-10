@@ -12,7 +12,7 @@ export const postLog = async (typeId) => {
 
     if (typeof typeId !== "number") {
         console.error(
-            "Parámetros inválidos. Se esperaba {severityId: number}."
+            "Parámetros inválidos. Se esperaba {typeId: number}."
         );
         return null;
     };
@@ -21,7 +21,7 @@ export const postLog = async (typeId) => {
         const res = await fetch(`${API_URL}/logs`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ severityId: typeId })
+            body: JSON.stringify({ typeId: typeId })
         });
 
         if (!res.ok) {
