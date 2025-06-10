@@ -38,11 +38,11 @@ export const listLogs = () => pool.query(`
  * @param {string} created_at - Fecha y hora del registro
  * @returns {Promise<import('pg').QueryResult>} - Resultado de la operación de inserción
  */
-export const insertLog = (type_id, created_at) => pool.query(`
+export const insertLog = (type_id) => pool.query(`
     INSERT INTO logs
-    (type_id, created_at)
-    VALUES ($1, $2)
-    `, [type_id, created_at]);
+    (type_id)
+    VALUES ($1)
+    `, [type_id]);
 
 
 /**
