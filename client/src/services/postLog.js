@@ -1,3 +1,12 @@
+/**
+ * Añade nuevo error log según nivel de seguridad y con fecha de creación
+ * 
+ * @async
+ * @function postLog
+ * @param {number} typeId - Identificador único del tipo de error
+ * @returns {Promise<Object|null>} Objeto con la respuesta del servidor si tiene éxito o "null" si hay algún error
+ */
+
 export const postLog = async (typeId) => {
     const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
