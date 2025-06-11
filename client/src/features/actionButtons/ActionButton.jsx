@@ -1,6 +1,6 @@
 "use client"
 import { Button } from "@/components/Button"
-import { postLog } from "@/services/postLog";
+import { postLog } from "@/services/logs";
 
 
 /**
