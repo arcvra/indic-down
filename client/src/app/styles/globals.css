@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  -background: hsl(0 0 5);
+  --background: hsl(0 0 5);
   --foreground: hsl(0 0 94);
   --text-muted: hsl(218 11 65);
 
@@ -45,8 +45,6 @@ body {
   display: grid;
   grid-template-rows: auto 1fr auto;
   min-height: 100lvh;
-
-  margin-block: 1lvh;
 }
 
 body::before {
