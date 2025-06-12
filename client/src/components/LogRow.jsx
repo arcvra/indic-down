@@ -4,12 +4,12 @@ export const LogRow = ({ type, severity, createdAt }) => {
             <th>
                 {type}
             </th>
-            <th>
+            <td>
                 {severity}
-            </th>
-            <th>
+            </td>
+            <td>
                 {createdAt}
-            </th>
+            </td>
         </tr>
     )
 }
