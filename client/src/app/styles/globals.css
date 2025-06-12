@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 :root {
+  -background: hsl(0 0 5);
   --foreground: hsl(0 0 94);
   --text-muted: hsl(218 11 65);
 
@@ -8,6 +9,20 @@
   --block-light: hsl(222, 46%, 11%);
   --block-muted: hsl(222, 44%, 9%);
   --border-color: hsl(227, 18%, 20%);
+
+  --gradient-base: hsl(0, 65%, 45%);
+  --gradient-red: hsl(0, 70%, 50%);
+  --gradient-red-2: hsl(0, 65%, 30%);
+  --gradient-red-3: hsl(0 65% 44% / 0.8);
+
+  --gradient-custom: linear-gradient(55deg,
+      var(--gradient-base),
+      var(--gradient-red) 10px,
+      var(--gradient-red-2) 50px,
+      var(--gradient-red-3));
+
+  --bg-gradient: var(--gradient-custom);
+
 }
 
 @theme inline {
@@ -15,6 +30,11 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+}
+
+.bg-custom-gradient {
+  @apply text-transparent bg-clip-text;
+  background-image: var(--bg-gradient);
 }
 
 body {

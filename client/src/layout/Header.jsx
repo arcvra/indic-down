@@ -3,7 +3,7 @@ import { FaGithub } from "react-icons/fa";
 export const Header = () => {
     return (
         <header className="grid grid-cols-[1fr_auto] py-4 px-20 items-center border-b-1 border-b-zinc-800">
-            <h1 className="text-xl text-red-400">Indic Down</h1>
+                <h1 className="text-3xl bg-custom-gradient">INDIC</h1>
             <nav className="flex">
                 <ul className="flex text-zinc-400 gap-10 items-center">
                     <li className="hidden sm:block">
