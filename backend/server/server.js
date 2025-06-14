@@ -7,17 +7,17 @@ dotenv.config();
 
 const PORT = process.env.PORT || 5000;
 
-// const corsConfig = {
-//     origin: `${process.env.HOST}`,
-//     methods: ['GET', 'POST', 'PUT'],
-//     credentials: true
-// }
+const corsConfig = {
+    origin: `${process.env.HOST}`,
+    methods: ['GET', 'POST', 'PUT'],
+    credentials: true
+}
 
 // App middlewares
 const app = express();
 app.use(express.json());
 // app.use(cors(corsConfig));
-app.use(cors());
+app.use(cors(corsConfig));
 
 // Routes
 setupRoutes(app);
