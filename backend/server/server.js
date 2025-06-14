@@ -8,7 +8,7 @@ dotenv.config();
 const PORT = process.env.PORT || 5000;
 
 const corsConfig = {
-    origin: `${process.env.HOST}:${process.env.CLIENT_PORT}`
+    origin: `${process.env.HOST}`
 }
 
 // App middlewares
