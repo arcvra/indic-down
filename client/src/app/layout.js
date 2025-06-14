@@ -1,17 +1,17 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Open_Sans } from "next/font/google";
 import "./styles/globals.css";
 import { Header } from "@/layout/Header";
 import { Footer } from "@/layout/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const openSans = Open_Sans({
+  variable: "--font-open-sans",
+  subsets: ['latin']
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const openSansMono = Open_Sans({
+  variable: "--font-open-sans-mono",
+  subsets: ['latin']
+})
 
 export const metadata = {
   title: "Indic-down",
@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="es">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${openSans.className} ${openSansMono.className} antialiased`}
       >
         <Header />
         {children}
