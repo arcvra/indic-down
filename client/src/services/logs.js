@@ -50,7 +50,13 @@ export const fetchLogs = async () => {
     const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
     try {
-        const res = await fetch(`${API_URL}/logs`);
+        const res = await fetch(`${API_URL}/logs`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "charset": "utf-8"
+            }
+        });
         if (!res.ok) {
             throw new Error("Error de servidor: " + res.status);
         }
