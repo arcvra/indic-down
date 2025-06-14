@@ -5,18 +5,19 @@ import setupRoutes from "#server/routes/index.js";
 
 dotenv.config();
 
-const PORT = process.env.PORT || 5000;
+// const PORT = process.env.PORT || 5000;
 
-const corsConfig = {
-    origin: `${process.env.HOST}`,
-    methods: ['GET', 'POST', 'PUT'],
-    credentials: true
-}
+// const corsConfig = {
+//     origin: `${process.env.HOST}`,
+//     methods: ['GET', 'POST', 'PUT'],
+//     credentials: true
+// }
 
 // App middlewares
 const app = express();
 app.use(express.json());
-app.use(cors(corsConfig));
+// app.use(cors(corsConfig));
+app.use(cors());
 
 // Routes
 setupRoutes(app);
