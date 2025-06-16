@@ -48,6 +48,10 @@ export const ActionButton = ({ data }) => {
         }
     }
 
+    useEffect(() => {
+        return () => timerRef.current && clearTimeout(timerRef.current);
+    }, []);
+
     return (
         <>
             {data?.map((item) => (
