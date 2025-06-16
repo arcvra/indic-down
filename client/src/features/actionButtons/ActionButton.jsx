@@ -2,6 +2,7 @@
 import { mutate } from "swr";
 import { Button } from "@/components/Button"
 import { postLog } from "@/services/logs";
+import { useState } from "react";
 
 
 /**
@@ -20,12 +21,23 @@ import { postLog } from "@/services/logs";
  */
 
 export const ActionButton = ({ data }) => {
+    const [isDisabled, setIsDisabled] = useState(false);
+
+    const disableButton = () => {
+        setIsDisabled(true);
+        setTimeout(()=>{
+            setIsDisabled(false);
+        }, 3000);
+    }
+
     const handleClick = async (itemId) => {
         try {
             await postLog(itemId);
             mutate("logs");
         } catch (err) {
             console.error("Error: ", err.message);
+        } finally {
+            disableButton();
         }
     }
 
@@ -40,6 +52,7 @@ export const ActionButton = ({ data }) => {
                     name={item.type}
                     id={`post-btn-${item.id}`}
                     title={item.type}
+                    disabled={isDisabled}
                 />
             ))}
         </>
