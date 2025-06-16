@@ -1,4 +1,5 @@
 "use client"
+import { mutate } from "swr";
 import { Button } from "@/components/Button"
 import { postLog } from "@/services/logs";
 
@@ -22,6 +23,7 @@ export const ActionButton = ({ data }) => {
     const handleClick = async (itemId) => {
         try {
             await postLog(itemId);
+            mutate("logs");
         } catch (err) {
             console.error("Error: ", err.message);
         }
