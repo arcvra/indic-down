@@ -10,7 +10,7 @@ export const RenderLogRows = () => {
     if (isLoading) return (
         <LogRow
             type="Cargando registros."
-            severity={<TbMoodLookDown />}
+            severity={<TbMoodLookDown className="size-8"/>}
             createdAt="--"
         />
     )
@@ -18,7 +18,7 @@ export const RenderLogRows = () => {
     if (error) return (
         <LogRow
             type="No ha sido posible cargar los registros."
-            severity={<TbMoodSadDizzy />}
+            severity={<TbMoodSadDizzy className="size-8"/>}
             createdAt="--"
         />
     )
@@ -27,7 +27,7 @@ export const RenderLogRows = () => {
     if (!logs || logs.length === 0) return (
         <LogRow
             type="No hay registros aún."
-            severity={<TbMoodHappy />}
+            severity={<TbMoodHappy className="size-8"/>}
             createdAt="--"
         />
     )
