@@ -2,7 +2,7 @@
 import { mutate } from "swr";
 import { Button } from "@/components/Button"
 import { postLog } from "@/services/logs";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 
 /**
@@ -22,22 +22,29 @@ import { useState } from "react";
 
 export const ActionButton = ({ data }) => {
     const [isDisabled, setIsDisabled] = useState(false);
+    const timerRef = useRef(null);
 
-    const disableButton = () => {
+    const startCooldown = () => {
+        if (timerRef.current) return;
+
         setIsDisabled(true);
-        setTimeout(()=>{
+
+        timerRef.current = setTimeout(() => {
             setIsDisabled(false);
+            timerRef.current = null;
         }, 3000);
-    }
+    };
 
     const handleClick = async (itemId) => {
+        if (isDisabled == true) return;
+
         try {
             await postLog(itemId);
             mutate("logs");
         } catch (err) {
             console.error("Error: ", err.message);
         } finally {
-            disableButton();
+            startCooldown();
         }
     }
 
