@@ -36,7 +36,7 @@ export const RenderLogRows = () => {
     return (
         <>
             {logs?.map((log) => {
-                const { date, time } = parseTimestamp(log.createdAt);
+                const { date, time } = parseTimestamp(log.created_at);
                 return (
                     <LogRow
                         key={log.id}
