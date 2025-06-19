@@ -22,18 +22,15 @@ import { useState, useRef, useEffect } from "react";
 
 export const ActionButton = ({ data }) => {
     const [isDisabled, setIsDisabled] = useState(false);
-    const [disabledStyle, setIsDisabledStyle] = useState("");
     const timerRef = useRef(null);
 
     const startCooldown = () => {
         if (timerRef.current) return;
 
         setIsDisabled(true);
-        setIsDisabledStyle("bg-zinc-950 color-zinc-900 border-zinc-900 cursor-not-allowed");
 
         timerRef.current = setTimeout(() => {
             setIsDisabled(false);
-            setIsDisabledStyle("");
             timerRef.current = null;
         }, 3000);
     };
@@ -62,7 +59,7 @@ export const ActionButton = ({ data }) => {
                     key={item.id}
                     ariaLabel={`Notificar ${item.type}`}
                     onClick={() => handleClick(item.id)}
-                    className={`bg-gradient-to-tr from-zinc-800 to-transparent border-[1px] border-zinc-700 rounded-md text-sm transition-transform hover:scale-95 ease-in-out cursor-pointer ${disabledStyle}`}
+                    className="bg-gradient-to-tr from-zinc-800 to-transparent border-[1px] border-zinc-700 rounded-md text-sm transition-transform hover:scale-95 ease-in-out cursor-pointer disabled:bg-zinc-950 disabled:text-zinc-800 disabled:border-zinc-900 disabled:cursor-not-allowed"
                     name={item.type}
                     id={`post-btn-${item.id}`}
                     title={item.type}
