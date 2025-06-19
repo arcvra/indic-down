@@ -114,3 +114,19 @@ tbody tr:nth-child(even):hover {
   overflow: hidden;
   border-radius: 20px;
 }
+
+td[data-severity="Bajo"] {
+  color: var(--status-low);
+}
+
+td[data-severity="Moderado"] {
+  color: var(--status-moderate);
+}
+
+td[data-severity="Alto"] {
+  color: var(--status-high);
+}
+
+td[data-severity="Crítico"] {
+  color: var(--status-critical);
+}
