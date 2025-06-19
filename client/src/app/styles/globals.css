@@ -106,6 +106,10 @@ tr:hover {
   background: var(--block-muted);
 }
 
+tbody tr:nth-child(even):hover {
+  background: var(--block-light);
+}
+
 #log-table {
   margin-top: 2rem;
   border: 2px solid var(--border-color);
