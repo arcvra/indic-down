@@ -27,8 +27,6 @@ export const ActionButton = ({ data }) => {
     const startCooldown = () => {
         if (timerRef.current) return;
 
-        setIsDisabled(true);
-
         timerRef.current = setTimeout(() => {
             setIsDisabled(false);
             timerRef.current = null;
@@ -37,6 +35,7 @@ export const ActionButton = ({ data }) => {
 
     const handleClick = async (itemId) => {
         if (isDisabled) return;
+        setIsDisabled(true);
 
         try {
             await postLog(itemId);
