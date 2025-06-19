@@ -36,7 +36,7 @@ export const ActionButton = ({ data }) => {
     };
 
     const handleClick = async (itemId) => {
-        if (isDisabled == true) return;
+        if (isDisabled) return;
 
         try {
             await postLog(itemId);
