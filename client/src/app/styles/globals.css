@@ -76,18 +76,9 @@ thead {
   border-bottom: 1px solid var(--border-color);
 }
 
-thead th:nth-child(1) {
-  width: 25%;
-}
-
-thead th:nth-child(2) {
-  width: 25%;
-}
-
-thead th:nth-child(3) {
-  width: 25%;
-}
-
+thead th:nth-child(1),
+thead th:nth-child(2),
+thead th:nth-child(3),
 thead th:nth-child(4) {
   width: 25%;
 }
@@ -104,10 +95,12 @@ tr>* {
 
 tr:hover {
   background: var(--block-muted);
+  color: var(--hover-text);
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
 tbody tr:nth-child(even):hover {
-  background: var(--block-light);
+  background: var(--block-muted);
 }
 
 #log-table {
