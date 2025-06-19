@@ -15,6 +15,11 @@
   --gradient-red-2: hsl(0, 65%, 30%);
   --gradient-red-3: hsl(0 65% 44% / 0.8);
 
+  --status-low: hsl(155, 50%, 45%);
+  --status-moderate: hsl(35, 80%, 55%);
+  --status-high: hsl(25, 100%, 50%);
+  --status-critical: hsl(0, 80%, 55%);
+
   --gradient-custom: linear-gradient(55deg,
       var(--gradient-base),
       var(--gradient-red) 10px,
