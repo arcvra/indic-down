@@ -5,9 +5,9 @@
   --foreground: hsl(0 0 94);
   --text-muted: hsl(218 11 65);
 
-  --block: hsl(222, 45%, 20%);
-  --block-light: hsl(222, 55%, 28%);
-  --block-muted: hsl(222, 65%, 36%);
+  --block: hsl(222, 35%, 11%);
+  --block-light: hsl(222, 42%, 14%);
+  --block-muted: hsl(222, 50%, 18%);
   --border-color: hsl(227, 18%, 20%);
 
   --gradient-base: hsl(0, 65%, 45%);
