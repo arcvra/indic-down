@@ -4,7 +4,7 @@ export const LogRow = ({ type, severity, date, time }) => {
             <th>
                 {type}
             </th>
-            <td>
+            <td data-severity={severity}>
                 {severity}
             </td>
             <td>
