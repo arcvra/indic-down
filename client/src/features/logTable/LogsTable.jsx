@@ -9,6 +9,7 @@ export const LogsTable = () => {
                         <th>Tipo</th>
                         <th>Severidad</th>
                         <th>Fecha</th>
+                        <th>Hora</th>
                     </tr>
                 </thead>
                 <tbody>
