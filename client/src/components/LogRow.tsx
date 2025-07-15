@@ -1,4 +1,11 @@
-export const LogRow = ({ type, severity, date, time }) => {
+interface LogRowProps {
+    type: string,
+    severity: string,
+    date: string,
+    time: string
+}
+
+export const LogRow = ({ type, severity, date, time }: LogRowProps) => {
     return (
         <tr>
             <th>
