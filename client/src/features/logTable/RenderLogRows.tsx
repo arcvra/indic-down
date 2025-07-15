@@ -16,7 +16,7 @@ export const RenderLogRows = () => {
         </div>
     )
 
-    if (error) return (
+    if (!logs || !logs.status || error) return (
         <div>
             <p>No ha sido posible cargar los registros.</p>
             <p>Por favor, inténtalo más tarde.</p>
@@ -25,7 +25,7 @@ export const RenderLogRows = () => {
     )
 
 
-    if (!logs || logs.content.length === 0) return (
+    if (logs.content.length === 0) return (
         <div>
             <p>No hay registros aún.</p>
             <TbMoodHappy className="size-8" />
@@ -34,7 +34,7 @@ export const RenderLogRows = () => {
 
     return (
         <>
-            {logs.content.map((log: LogData) => {
+            {logs.content?.map((log: LogData) => {
                 const { date, time } = parseTimestamp(log.created_at);
                 return (
                     <LogRow

@@ -28,6 +28,7 @@ export const fetchTypes = async (): Promise<APItypeResponse | null> => {
         return data;
     } catch (err) {
         console.error("Error al hacer fetch: ", err);
-        return null;
+        const data: APItypeResponse = { status: false, content: [] }
+        return data;
     }
 }

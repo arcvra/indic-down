@@ -4,7 +4,7 @@ import { APItypeResponse, fetchTypes, TypeItem } from "@/services/types";
 export const ButtonsSection = async () => {
     const data: APItypeResponse = await fetchTypes();
 
-    if (!data.status || !Array.isArray(data.content) || data.content.length == 0) {
+    if (!data.status || !Array.isArray(data.content) || data.content.length == 0 || data == null) {
         return (
             <section>
                 <p>No hemos podido cargar la información de esta sección. Por favor, inténtalo más tarde.</p>

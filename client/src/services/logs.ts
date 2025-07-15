@@ -69,6 +69,7 @@ export const fetchLogs = async (): Promise<APILogResponse | null> => {
         return data;
     } catch (err) {
         console.error("Error al hacer fetch: ", err);
-        return null;
+        const data: APILogResponse = {status: false, content: null}
+        return data;
     }
 }
