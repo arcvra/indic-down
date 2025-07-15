@@ -4,7 +4,8 @@ interface ButtonProps {
     onClick: () => void,
     className: string,
     name: string,
-    children: string
+    children: string,
+    disabled: boolean
 }
 
 export function Button({
@@ -13,7 +14,9 @@ export function Button({
     onClick,
     className = "",
     name,
-    children }: ButtonProps) {
+    children,
+    disabled
+}: ButtonProps) {
     return (
         <button
             aria-label={ariaLabel}
@@ -21,6 +24,7 @@ export function Button({
             name={name}
             className={`${className} px-2 py-3`}
             onClick={onClick}
+            disabled={disabled}
         >
             {children}
         </button>

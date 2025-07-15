@@ -3,6 +3,7 @@ import { mutate } from "swr";
 import { Button } from "@/components/Button"
 import { postLog } from "@/services/logs";
 import { useState, useRef, useEffect } from "react";
+import { TypeItem } from "@/services/types";
 
 
 /**
@@ -10,19 +11,16 @@ import { useState, useRef, useEffect } from "react";
  *
  * Renderiza una lista de botones de acción, uno por cada tipo de error recibido en el array `data`
  * Al hacer clic en un botón, se ejecuta la función asíncrona `postLog` con el `id` del elemento correspondiente
- *
  * @component
- * @param {Object} props - Propiedades del componente
- * @param {Array<{id: string|number, type: string}>} props.data - Array de objetos que contienen la información de los tipos de error
- *   Cada objeto debe tener al menos las propiedades:
- *     - id: Identificador único del tipo de error
- *     - type: Nombre del tipo de error
- * @returns {JSX.Element} Una lista de botones que permiten notificar el tipo de error seleccionado
- */
+*/
 
-export const ActionButton = ({ data }) => {
+interface ActionButtonProps {
+    data: TypeItem[]
+};
+
+export const ActionButton = ({ data }: ActionButtonProps) => {
     const [isDisabled, setIsDisabled] = useState(false);
-    const timerRef = useRef(null);
+    const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
     const startCooldown = () => {
         if (timerRef.current) return;
@@ -33,22 +31,28 @@ export const ActionButton = ({ data }) => {
         }, 3000);
     };
 
-    const handleClick = async (itemId) => {
+    const handleClick = async (itemId: number) => {
         if (isDisabled) return;
         setIsDisabled(true);
 
         try {
             await postLog(itemId);
             mutate("logs");
-        } catch (err) {
-            console.error("Error: ", err.message);
+        } catch (err: unknown) {
+            if (err instanceof Error) {
+                console.error("Error: ", err.message);
+            } else {
+                console.error("Error desconocido", err);
+            }
         } finally {
             startCooldown();
         }
     }
 
     useEffect(() => {
-        return () => timerRef.current && clearTimeout(timerRef.current);
+        return () => {
+            if (timerRef.current) clearTimeout(timerRef.current)
+        };
     }, []);
 
     return (
@@ -60,10 +64,10 @@ export const ActionButton = ({ data }) => {
                     onClick={() => handleClick(item.id)}
                     className="bg-gradient-to-tr from-zinc-800 to-transparent border-[1px] border-zinc-700 rounded-md text-sm transition-transform hover:scale-95 ease-in-out cursor-pointer disabled:bg-zinc-950 disabled:text-zinc-800 disabled:border-zinc-900 disabled:cursor-not-allowed"
                     name={item.type}
-                    id={`post-btn-${item.id}`}
-                    title={item.type}
                     disabled={isDisabled}
-                />
+                >
+                    {item.type}
+                </Button>
             ))}
         </>
     )
