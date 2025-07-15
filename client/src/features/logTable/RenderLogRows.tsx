@@ -1,41 +1,40 @@
 "use client"
 import useSWR from "swr";
 import { LogRow } from "@/components/LogRow";
-import { fetchLogs } from "@/services/logs";
+import { fetchLogs, LogData } from "@/services/logs";
 import { TbMoodLookDown, TbMoodSadDizzy, TbMoodHappy } from "react-icons/tb";
 import { parseTimestamp } from "@/lib/parseTimestamp";
 
 export const RenderLogRows = () => {
+
     const { data: logs, error, isLoading } = useSWR("logs", fetchLogs);
 
     if (isLoading) return (
-        <LogRow
-            type="Cargando registros."
-            severity={<TbMoodLookDown className="size-8" />}
-            createdAt="--"
-        />
+        <div>
+            <p>Cargando registros</p>
+            <TbMoodLookDown className="size-8" />
+        </div>
     )
 
     if (error) return (
-        <LogRow
-            type="No ha sido posible cargar los registros."
-            severity={<TbMoodSadDizzy className="size-8" />}
-            createdAt="--"
-        />
+        <div>
+            <p>No ha sido posible cargar los registros.</p>
+            <p>Por favor, inténtalo más tarde.</p>
+            <TbMoodSadDizzy className="size-8" />
+        </div>
     )
 
 
-    if (!logs || logs.length === 0) return (
-        <LogRow
-            type="No hay registros aún."
-            severity={<TbMoodHappy className="size-8" />}
-            createdAt="--"
-        />
+    if (!logs || logs.content.length === 0) return (
+        <div>
+            <p>No hay registros aún.</p>
+            <TbMoodHappy className="size-8" />
+        </div>
     )
 
     return (
         <>
-            {logs?.map((log) => {
+            {logs.content.map((log: LogData) => {
                 const { date, time } = parseTimestamp(log.created_at);
                 return (
                     <LogRow
