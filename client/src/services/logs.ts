@@ -38,15 +38,24 @@ export const postLog = async (typeId: number): Promise<APINewLogResponse | null>
     }
 }
 
-/** 
- * Obtiene todos los registros de error.
- * 
- * @async
- * @function fetchLogs
- * @returns {Promise<Object|null>}
- */
 
-export const fetchLogs = async () => {
+export interface LogData {
+    id: number,
+    created_at: string,
+    type: string,
+    severity: string,
+    level: number
+}
+interface APILogResponse {
+    status: boolean,
+    content: LogData[]
+}
+
+/** 
+ * Obtiene todos los registros de errores notificados.
+ * @async
+ */
+export const fetchLogs = async (): Promise<APILogResponse | null> => {
     const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
     try {
@@ -56,11 +65,10 @@ export const fetchLogs = async () => {
             throw new Error("Error de servidor:" + res.status + text);
         }
 
-        const data = await res.json();
-        return data.content;
+        const data: APILogResponse = await res.json();
+        return data;
     } catch (err) {
         console.error("Error al hacer fetch: ", err);
         return null;
     }
-
 }
