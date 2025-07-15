@@ -1,4 +1,9 @@
-export const parseTimestamp = (createdAt) => {
+interface LocaleTimeStamp {
+    date: string,
+    time: string
+}
+
+export const parseTimestamp = (createdAt: string): LocaleTimeStamp => {
     const dateObj = new Date(createdAt);
 
     return {
