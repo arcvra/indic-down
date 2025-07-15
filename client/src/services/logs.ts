@@ -1,13 +1,13 @@
 /**
- * Añade nuevo error log según nivel de seguridad y con fecha de creación
- * 
- * @async
- * @function postLog
- * @param {number} typeId - Identificador único del tipo de error
- * @returns {Promise<Object|null>} Objeto con la respuesta del servidor si tiene éxito o "null" si hay algún error
- */
+ * Añade nuevo error log según según el typeId del issue a notificar
+ * @async 
+*/
 
-export const postLog = async (typeId) => {
+interface APINewLogResponse {
+    typeId: number
+}
+
+export const postLog = async (typeId: number): Promise<APINewLogResponse | null> => {
     const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
     if (typeof typeId !== "number") {
@@ -21,7 +21,7 @@ export const postLog = async (typeId) => {
         const res = await fetch(`${API_URL}/logs`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ typeId: typeId })
+            body: JSON.stringify({ typeId })
         });
 
         if (!res.ok) {
@@ -29,7 +29,7 @@ export const postLog = async (typeId) => {
             throw new Error(errorMessage);
         }
 
-        const data = await res.json();
+        const data: APINewLogResponse = await res.json();
         return data;
 
     } catch (err) {
