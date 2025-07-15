@@ -4,14 +4,14 @@ Proyecto dedicado al seguimiento del estado de la herramienta *Indic* de [*pdc.x
 
 ## Tecnologías
 
-| Área                  | Stack                     |
-| -----                 | -----------               |
-| Backend               | Express, pg               |
-| Frontend              | Next.js, Tailwind         |
-| Control de versiones  | Git + Github              |
-| Herramientas          | dotenv, CORS, concurrently|
-| Hosting (backend)     | Railway                   |
-| Hosting (client)      | Vercel                    |
+| Área                  | Stack                                 |
+| -----                 | -----------                           |
+| Backend               | Express, pg                           |
+| Frontend              | TypeScript, Next.js, Tailwind         |
+| Control de versiones  | Git + Github                          |
+| Herramientas          | dotenv, CORS, concurrently            |
+| Hosting (backend)     | Railway                               |
+| Hosting (client)      | Vercel                                |
 
 ## Roadmap
 
@@ -19,11 +19,11 @@ Proyecto dedicado al seguimiento del estado de la herramienta *Indic* de [*pdc.x
 
 - Configuración inicial de servidor [X]
 - Conexión con Railway para DB [X]
-- Establecer rutas CRUD [ ]
+- Establecer rutas CRUD [X]
 
 **Client**:
 
 - Creación de layout general [X]
-- Implementar Dashboard para visualizar registros [ ]
-- Implementar herramientas de notificación de incidencias [ ]
-- Estilado y diseño [ ]
+- Implementar Dashboard para visualizar registros [X]
+- Implementar herramientas de notificación de incidencias [X]
+- Estilado y diseño [X]
