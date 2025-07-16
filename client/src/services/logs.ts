@@ -46,7 +46,7 @@ export interface LogData {
     severity: string,
     level: number
 }
-interface APILogResponse {
+export interface APILogResponse {
     status: boolean,
     content: LogData[]
 }
