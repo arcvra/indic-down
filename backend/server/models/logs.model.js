@@ -4,9 +4,11 @@ import { pool } from "#database/config.js";
  * 
  * @async
  * @function listLogs
+ * @param limit - Límite de resultados a devolver. Preestablecido en 20
+ * @param offset - Inicio de resultados a mostrar. Preestablecido en 0
  * @returns {Promise<import('pg').QueryResult<LogRow>>} - Resultado de la consulta (rows = LogRow[])
  */
-export const listLogs = () => pool.query(`
+export const listLogs = (limit = 20, offset = 0) => pool.query(`
     SELECT 
         logs.id, 
         logs.created_at,
@@ -16,8 +18,9 @@ export const listLogs = () => pool.query(`
     FROM logs 
     JOIN types ON logs.type_id = types.id
     JOIN severities ON types.severity_id = severities.id
-    ORDER BY logs.created_at DESC;
-     `);
+    ORDER BY logs.created_at DESC
+    LIMIT $1 OFFSET $2
+     `, [limit, offset]);
 
 /**
 * @typedef {Object} LogRow
