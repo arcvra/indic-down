@@ -1,11 +1,13 @@
 "use client"
 import useSWR from "swr";
+import { useState } from "react";
 import { fetchLogs } from "@/services/logs";
 
 import { RenderLogRows } from "@/features/logTable/RenderLogRows"
 import { APILogResponse } from "@/services/logs";
 
 import { TbMoodSadDizzy, TbMoodHappy, TbMoodLookDown } from "react-icons/tb";
+import { PaginationBar } from "../pagination/PaginationBar";
 
 
 export interface APILogState {
@@ -16,7 +18,22 @@ export interface APILogState {
 
 export const LogsTable = () => {
 
-    const { data: logs, error, isLoading } = useSWR("logs", fetchLogs);
+    const [limit, setLimit] = useState(20);
+    const [offset, setOffset] = useState(0);
+
+    const handleSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        setLimit(Number(e.target.value));
+        setOffset(0);
+    };
+
+    const handlePrev = () => setOffset(Math.max(0, offset - limit));
+    const handleNext = () => setOffset(offset + limit);
+    const handleFirst = () => setOffset(0);
+
+    const { data: logs, error, isLoading } = useSWR(
+        ["logs", limit, offset],
+        () => fetchLogs({ limit, offset })
+    );
 
     if (isLoading) return (
         <section>
@@ -43,6 +60,16 @@ export const LogsTable = () => {
 
     return (
         <div id="log-table">
+            <PaginationBar
+                limit={limit}
+                offset={offset}
+                handleSelect={handleSelect}
+                onPrev={handlePrev}
+                onNext={handleNext}
+                onFirst={handleFirst}
+                disablePrev={offset === 0}
+                disableNext={logs.content.length < limit}
+            />
             <table>
                 <thead>
                     <tr>
@@ -58,6 +85,16 @@ export const LogsTable = () => {
                     />
                 </tbody>
             </table>
+            <PaginationBar
+                limit={limit}
+                offset={offset}
+                handleSelect={handleSelect}
+                onPrev={handlePrev}
+                onNext={handleNext}
+                onFirst={handleFirst}
+                disablePrev={offset === 0}
+                disableNext={logs.content.length < limit}
+            />
         </div>
     )
 }
