@@ -48,18 +48,37 @@ export interface LogData {
 }
 export interface APILogResponse {
     status: boolean,
-    content: LogData[]
+    content: LogData[],
+    pagination: PaginationTypes
+}
+
+export interface PaginationTypes {
+    limit: number,
+    offset: number,
 }
 
 /** 
- * Obtiene todos los registros de errores notificados.
+ * Obtiene los registros de errores notificados.
+ * 
+ * - De forma predeterminada recibe únicamente la cantidad especificada por el servidor (limit 20, offset 10)
  * @async
  */
-export const fetchLogs = async (): Promise<APILogResponse | null> => {
+export const fetchLogs = async ({ limit, offset }: PaginationTypes): Promise<APILogResponse | null> => {
     const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
     try {
-        const res = await fetch(`${API_URL}/logs`);
+        // Se construye la query string según los valores recibidos
+        const params = new URLSearchParams();
+        if (typeof limit === "number") params.append("limit", limit.toString());
+        if (typeof offset === "number") params.append("offset", offset.toString());
+
+        // Se construye la URL y se hace fetch
+        const url = params.toString()
+            ? `${API_URL}/logs?${params.toString()}`
+            : `${API_URL}/logs`;
+
+        const res = await fetch(url);
+
         if (!res.ok) {
             const text = await res.text();
             throw new Error("Error de servidor:" + res.status + text);
@@ -69,7 +88,7 @@ export const fetchLogs = async (): Promise<APILogResponse | null> => {
         return data;
     } catch (err) {
         console.error("Error al hacer fetch: ", err);
-        const data: APILogResponse = {status: false, content: null}
+        const data: APILogResponse = { status: false, content: null, pagination: null }
         return data;
     }
 }
