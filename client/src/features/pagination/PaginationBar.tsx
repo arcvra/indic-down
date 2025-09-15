@@ -25,7 +25,7 @@ export const PaginationBar = ({
 }: PaginationBarProps) => {
 
     const buttonStyle = "bg-rose-900 mx-5 rounded-sm text-zinc-300 hover:scale-99";
-    
+
     return (
         <div className="bg-linear-to-bl from-gray-900 to-zinc-950 py-5 flex justify-center items-center">
             <Button
@@ -34,8 +34,9 @@ export const PaginationBar = ({
                 name="Botón de inicio"
                 className={buttonStyle}
                 disabled={disablePrev}
-                children="Inicio"
-            />
+            >
+                Inicio
+            </Button>
 
             <Button
                 onClick={onPrev}
@@ -43,8 +44,9 @@ export const PaginationBar = ({
                 name="Botón anterior"
                 className={buttonStyle}
                 disabled={disablePrev}
-                children="Anterior"
-            />
+            >
+                Anterior
+            </Button>
 
             <p className="text-zinc-400"> Página {Math.floor(offset / limit) + 1} </p>
 
@@ -54,8 +56,9 @@ export const PaginationBar = ({
                 name="Botón siguiente"
                 className={buttonStyle}
                 disabled={disableNext}
-                children="Siguiente"
-            />
+            >
+                Siguiente
+            </Button>
 
             <select
                 value={limit} onChange={handleSelect}
