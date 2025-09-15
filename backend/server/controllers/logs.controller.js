@@ -1,5 +1,13 @@
 import { listLogs, insertLog } from "#server/models/logs.model.js";
 
+/**
+ * Controlador para obtener registros de logs
+ * 
+ * - Extrae los parámetros de consulta (limit, offset)
+ * - Valida que sean enteros positivos; usa valores por defectos
+ * - Llama al modelo `listLogs` para ejecutar la query
+ * - Devuelve JSON con `status`, `content` y `pagination`
+ */
 export const listLogsController = async (req, res) => {
     try {
         // Se extraen los parámetros de la query string con valores por defecto (20, 0)
