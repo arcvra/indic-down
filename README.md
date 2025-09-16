@@ -2,6 +2,8 @@
 
 Proyecto dedicado al seguimiento del estado de la herramienta *Indic* de [*pdc.xaliga.cat*](https://pedc.xaliga.cat) mediante la notificación por parte de los usuarios. Este proyecto permite registrar las caídas del sistema para llevar un histórico visual y cuantificable.
 
+![Indic Down Screenshot](./doc/screenshot.png)
+
 ## Tecnologías
 
 | Área                  | Stack                                 |
