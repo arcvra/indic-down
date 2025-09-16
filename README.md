@@ -15,15 +15,18 @@ Proyecto dedicado al seguimiento del estado de la herramienta *Indic* de [*pdc.x
 
 ## Roadmap
 
-**Backend**:
-
-- Configuración inicial de servidor [X]
-- Conexión con Railway para DB [X]
-- Establecer rutas CRUD [X]
-
-**Client**:
-
-- Creación de layout general [X]
-- Implementar Dashboard para visualizar registros [X]
-- Implementar herramientas de notificación de incidencias [X]
-- Estilado y diseño [X]
+- Añadir paginación [X]
+- Añadir filtrado:
+  - tipo [ ]
+  - gravedad
+  - fecha [ ]
+- Exportar registro:
+  - CSV [ ]
+  - XLSX [ ]
+  - Markdown / Txt [ ]
+  - PDF [ ]
+- Autenticación [ ]
+- Mejoras visuales:
+  - Accesibilidad [ ]
+  - Mensajes de error [ ]
+  - Diseño de logo [ ]
