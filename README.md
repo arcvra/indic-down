@@ -7,7 +7,7 @@ Proyecto dedicado al seguimiento del estado de la herramienta *Indic* de [*pdc.x
 | Área                  | Stack                                 |
 | -----                 | -----------                           |
 | Backend               | Express, pg                           |
-| Frontend              | TypeScript, Next.js, Tailwind         |
+| Frontend              | TypeScript, Next.js, Tailwind, SWR    |
 | Control de versiones  | Git + Github                          |
 | Herramientas          | dotenv, CORS, concurrently            |
 | Hosting (backend)     | Railway                               |
