@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/Button"
-
+import style from "@/styles/pagination.module.css";
 export interface PaginationBarProps {
     limit: number,
     offset: number,
@@ -62,7 +62,7 @@ export const PaginationBar = ({
 
             <select
                 value={limit} onChange={handleSelect}
-                className="p-2 border-rose-800 border-1 rounded-md  bg-custom-gradient"
+                className={style.select}
             >
                 <option value={10}>10</option>
                 <option value={20}>20</option>

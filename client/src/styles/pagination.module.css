@@ -1,0 +1,22 @@
+.select {
+    --_select-rose: var(--gradient-red-2);
+    padding: .5rem .8rem;
+    color: transparent;
+    border-radius: .1rem;
+    border: 2px var(--color-rose-900) solid;
+    background-color: transparent;
+    background-clip: text;
+    background-image: var(--bg-gradient);
+}
+
+.select:hover,
+.select:focus {
+    outline: 2px var(--rose-300) solid;
+    box-shadow: none;
+}
+
+.select option {
+    border-radius: 0px;
+    color: var(--background);
+    background: var(--color-zinc-600);
+}
