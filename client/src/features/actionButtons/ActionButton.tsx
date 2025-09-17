@@ -37,7 +37,7 @@ export const ActionButton = ({ data }: ActionButtonProps) => {
 
         try {
             await postLog(itemId);
-            mutate("logs");
+            mutate(["logs", { limit: 20, offset: 0 }]);
         } catch (err: unknown) {
             if (err instanceof Error) {
                 console.error("Error: ", err.message);
