@@ -31,7 +31,7 @@ export const LogsTable = () => {
     const handleFirst = () => setOffset(0);
 
     const { data: logs, error, isLoading } = useSWR(
-        ["logs", limit, offset],
+        ["logs", { limit, offset }],
         () => fetchLogs({ limit, offset })
     );
 
