@@ -17,18 +17,18 @@ Proyecto dedicado al seguimiento del estado de la herramienta *Indic* de [*pdc.x
 
 ## Roadmap
 
-- Añadir paginación [X]
+- [X] Añadir paginación
 - Añadir filtrado:
-  - tipo [ ]
-  - gravedad
-  - fecha [ ]
+  - [ ] tipo
+  - [ ] gravedad
+  - [ ] fecha
 - Exportar registro:
-  - CSV [ ]
-  - XLSX [ ]
-  - Markdown / Txt [ ]
-  - PDF [ ]
-- Autenticación [ ]
+  - [ ] CSV
+  - [ ] XLSX
+  - [ ] PDF
+  - [ ] Markdown / Txt
+- [ ] Autenticación
 - Mejoras visuales:
-  - Accesibilidad [ ]
-  - Mensajes de error [ ]
-  - Diseño de logo [ ]
+  - [ ] Accesibilidad
+  - [ ] Mensajes de error
+  - [ ] Diseño de logo
