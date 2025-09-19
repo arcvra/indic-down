@@ -24,11 +24,11 @@ Proyecto dedicado al seguimiento del estado de la herramienta *Indic* de [*pdc.x
   - [ ] fecha
 - Exportar registro:
   - [ ] CSV
-  - [ ] XLSX
   - [ ] PDF
+  - [ ] XLSX
   - [ ] Markdown / Txt
 - [ ] Autenticación
 - Mejoras visuales:
-  - [ ] Accesibilidad
-  - [ ] Mensajes de error
-  - [ ] Diseño de logo
+  - [ ] accesibilidad
+  - [ ] mensajes de error
+  - [ ] diseño de logo
